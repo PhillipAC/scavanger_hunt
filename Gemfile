@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
+gem 'rqrcode'
 gem 'bootstrap-sass', '3.3.6'
 gem 'cancancan', '~> 1.10'
 gem 'devise'

@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @qr = RQRCode::QRCode.new( request.original_url )
     @collection = @location.collections.new
   end
 

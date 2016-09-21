@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @location.name %>
+  <%= @location.name %><br>
   
   <% if current_user && current_user.admin %>
     <br>The following teams have found this location<br>
@@ -11,6 +11,9 @@
         <%= c.team.name %> at <%= c.created_at %><br>
       <% end %>
     <% end %>
+    <div style="display:inline-block;">
+      <%=raw @qr.as_html %>
+    </div>
   <% else %>
     <%= form_for(@collection) do |f| %>
       <% if @collection.errors.any? %>
