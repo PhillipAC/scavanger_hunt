@@ -4,27 +4,36 @@
   <strong>Name:</strong>
   <%= @location.name %>
   
-  <%= form_for(@collection) do |f| %>
-    <% if @collection.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
-  
-        <ul>
-        <% @collection.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+  <% if current_user && current_user.admin %>
+    <br>The following teams have found this location<br>
+    <% @location.collections.each do |c| %>
+      <% if c.team %>
+        <%= c.team.name %> at <%= c.created_at %><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= form_for(@collection) do |f| %>
+      <% if @collection.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
+    
+          <ul>
+          <% @collection.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="field">
+        <%= f.hidden_field :code, value: @collection.location.code %>
+        <%= f.hidden_field :location_id, value: @collection.location.id %>
+        Select Team <br>
+        <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
       </div>
     <% end %>
-    <div class="field">
-      <%= f.hidden_field :code, value: @collection.location.code %>
-      <%= f.hidden_field :location_id, value: @collection.location.id %>
-      Select Team <br>
-      <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
   <% end %>
 </p>
 
