@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+<% @team.collections.each do |c| %>
+  <%= c.location.name %> at <%=c.created_at%><br>
+<% end %>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>

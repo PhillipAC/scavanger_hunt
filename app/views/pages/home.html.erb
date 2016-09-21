@@ -1,0 +1,9 @@
+<% if !current_user %>
+    <%= link_to "Login", new_user_session_url %>
+<% else %>
+    <%= link_to "Create Team", new_team_url %><br>
+    <%= link_to "Create Location", new_location_url %><br>
+    <%= link_to "View Teams", teams_url %><br>
+    <%= link_to "View Locations", locations_url %>
+    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+<% end %>

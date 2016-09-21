@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @location.name %>
+  
+  <%= form_for(@collection) do |f| %>
+    <% if @collection.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@collection.errors.count, "error") %> prohibited this collection from being saved:</h2>
+  
+        <ul>
+        <% @collection.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= f.hidden_field :location_id, value: @collection.location.id %>
+      Select Team <br>
+      <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</p>
+
+
