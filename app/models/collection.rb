@@ -1,9 +1,9 @@
 class Collection < ActiveRecord::Base
-    belongs_to :location, dependent: :destroy
-    belongs_to :team, dependent: :destroy
+    belongs_to :location
+    belongs_to :team
     
-    validates_associated :location
-    validates_associated :team
+    validates :location, presence: true
+    validates :team, presence: true
     validates :location_id, uniqueness: { scope: :team,
     message: "You already checked in here!" }
 end

@@ -26,6 +26,11 @@ class CollectionsController < ApplicationController
   # POST /collections.json
   def create
     @collection = Collection.new(collection_params)
+    puts "Look below this"
+    unless permit_code_param[:code] == @collection.location.code
+      redirect_to root_path, notice: 'Location code not included'
+      return
+    end
     respond_to do |format|
       if @collection.save
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
@@ -65,5 +70,8 @@ class CollectionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def collection_params
       params.require(:collection).permit(:location_id, :team_id)
+    end
+    def permit_code_param
+      params.require(:collection).permit(:code)
     end
 end

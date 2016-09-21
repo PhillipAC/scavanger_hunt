@@ -17,6 +17,7 @@
       </div>
     <% end %>
     <div class="field">
+      <%= f.hidden_field :code, value: @collection.location.code %>
       <%= f.hidden_field :location_id, value: @collection.location.id %>
       Select Team <br>
       <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>

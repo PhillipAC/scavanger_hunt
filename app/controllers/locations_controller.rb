@@ -27,6 +27,7 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
+    @location.code = SecureRandom.hex
 
     respond_to do |format|
       if @location.save
@@ -66,7 +67,7 @@ class LocationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_location
-      @location = Location.find(params[:id])
+      @location = Location.find_by_code(params[:code])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
