@@ -9,8 +9,7 @@ name. They are then directed to a page which tells them how many locations
 they have found out of all the locations.
 
 ##Goals
-* Give locations unique random id for urls instead of index number
-* Use the unique random id as "password" with the index id to make connection
+* Adjust layout to look better
 
 ##Possible Goals
 * Setup player accounts associated with teams
@@ -25,6 +24,8 @@ they have found out of all the locations.
 * Teams 
 * Locations
 * Collections (A connection between teams and locations)
+* Give locations unique random id for urls instead of index number
+* Use the unique random id as "password" with the index id to make connection
 
 ##Tech Stuff
 * Admins should create teams and give them a name
