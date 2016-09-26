@@ -31,6 +31,7 @@ class CollectionsController < ApplicationController
       redirect_to root_path, notice: 'Location code not included'
       return
     end
+    @collection.ip = request.remote_ip
     respond_to do |format|
       if @collection.save
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }

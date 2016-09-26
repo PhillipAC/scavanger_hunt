@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show, :edit, :update, :destroy, :get_qr]
   load_and_authorize_resource
     
   # GET /locations
@@ -13,6 +13,12 @@ class LocationsController < ApplicationController
   def show
     @qr = RQRCode::QRCode.new( request.original_url )
     @collection = @location.collections.new
+  end
+  
+  # Get /collections/:code/qr
+  def get_qr
+    @location_url = location_url(@location)
+    @qr = RQRCode::QRCode.new( @location_url )
   end
 
   # GET /locations/new
