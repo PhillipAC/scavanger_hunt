@@ -22,6 +22,10 @@
       Select Team <br>
       <%= f.collection_select :team_id, Team.all, :id, :name, include_blank: true %>
     </div>
+  <div class="field">
+    <%= f.label :meta %><br>
+    <%= f.text_field :meta %>
+  </div>
     <div class="actions">
       <%= f.submit %>
     </div>

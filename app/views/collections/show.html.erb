@@ -5,6 +5,8 @@
   <%= @collection.team.name %><br>
   <strong>Location:</strong>
   <%= @collection.location.name %><br>
+  <strong>Meta Puzzle:</strong>
+  <%= @collection.location.meta %><br>
   Your location has been confirmed at <%= @collection.created_at %>. 
   You have currently found <%= @collection.team.collections.count %> 
   locations out of <%= Location.count %>.
