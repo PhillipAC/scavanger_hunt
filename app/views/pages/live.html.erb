@@ -1,0 +1,51 @@
+<h1>Live Feed</h1>
+<p id="note">Updated at: <%= @time.strftime("%H:%M:%S") %> UTC</p>
+<div class="container">
+    <% @teams.in_groups_of(3).each do |group| %>
+        <div class="row">
+            <% group.each do |team| %>
+            <% if team %>
+                <div class="col-md-4 cell">
+                   <h2><%= team.name %></h2>
+                   <ul>
+                   <% team.collections.each do |c| %>
+                       <li><%=c.location.name%> at <%=c.created_at%></li>
+                   <% end %>
+                   </ul>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+</div>
+
+<script>
+/*
+function update(){
+
+  $.ajax({
+          url : "<%= get_feed_path %>",
+          type : "get",
+          success : function(data){
+              $("#note").text("Updated at " + data.time)
+              window.location.reload();
+          
+          },
+          error : function(){
+            $("#note").text("There was an error")
+          }
+  });
+};
+
+setInterval(function(){window.location.reload(),
+    update()}, 3000);
+*/
+reset = function(){
+    location.reload(true)
+}
+
+$( document ).ready(function() {
+    setTimeout(function(){location.reload(true)}, 30000);
+});
+
+</script>

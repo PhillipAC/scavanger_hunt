@@ -42,3 +42,11 @@ td {
 
 td.black { border-color: #000; }
 td.white { border-color: #fff; }
+
+.cell {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-width: 1;
+  border-style: groove;
+  border-color: #333333;
+}

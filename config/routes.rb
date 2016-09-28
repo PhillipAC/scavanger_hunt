@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'
+  get 'live' => 'pages#live'
 
   resources :teams
   resources :collections
