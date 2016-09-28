@@ -17,7 +17,7 @@ they have found out of all the locations.
 * Players can view all Connections their team built
 * Multiple "Games" each with their own teams, locations, connections
 
-##Complted Goals
+##Completed Goals
 * Admin Accounts via Devise
 * Roles via Cancan (Admin)
 * Security based on the roles (i.e. only admins can index/create models)
