@@ -24,7 +24,7 @@
 function update(){
 
   $.ajax({
-          url : "<%= get_feed_path %>",
+          url : "",
           type : "get",
           success : function(data){
               $("#note").text("Updated at " + data.time)
