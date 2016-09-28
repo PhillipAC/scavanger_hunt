@@ -11,7 +11,7 @@ they have found out of all the locations.
 ##Goals
 * Adjust layout to look better
 
-##Possible Goals
+##Possible Goals - These have begun to be solved in a forked version
 * Setup player accounts associated with teams
 * When a player builds a Connection it will use their team automatically
 * Players can view all Connections their team built
