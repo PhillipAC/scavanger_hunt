@@ -1,15 +1,33 @@
 <h1>Live Feed</h1>
 <p id="note">Updated at: <%= @time.strftime("%H:%M:%S") %> UTC</p>
 <div class="container">
+    <h2>By Team</h2>
     <% @teams.in_groups_of(3).each do |group| %>
         <div class="row">
             <% group.each do |team| %>
             <% if team %>
                 <div class="col-md-4 cell">
-                   <h2><%= team.name %></h2>
+                   <h3><%= team.name %></h3>
                    <ul>
                    <% team.collections.each do |c| %>
                        <li><%=c.location.name%> at <%=c.created_at%></li>
+                   <% end %>
+                   </ul>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+    <h2>By Location</h2>
+    <% @locations.in_groups_of(3).each do |group| %>
+        <div class="row">
+            <% group.each do |location| %>
+            <% if location %>
+                <div class="col-md-4 cell">
+                   <h3><%= location.name %></h3>
+                   <ul>
+                   <% location.collections.each do |c| %>
+                       <li><%=c.team.name%> at <%=c.created_at%></li>
                    <% end %>
                    </ul>
                 </div>
