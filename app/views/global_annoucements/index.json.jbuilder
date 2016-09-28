@@ -1,0 +1,1 @@
+json.array! @global_annoucements, partial: 'global_annoucements/global_annoucement', as: :global_annoucement

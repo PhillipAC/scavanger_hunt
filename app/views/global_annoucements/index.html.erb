@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Global Annoucements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @global_annoucements.each do |global_annoucement| %>
+      <tr>
+        <td><%= global_annoucement.content %></td>
+        <td><%= link_to 'Show', global_annoucement %></td>
+        <td><%= link_to 'Edit', edit_global_annoucement_path(global_annoucement) %></td>
+        <td><%= link_to 'Destroy', global_annoucement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Global annoucement', new_global_annoucement_path %>

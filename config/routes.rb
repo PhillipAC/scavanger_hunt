@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :global_annoucements
   devise_for :users
   root 'pages#home'
   get 'live' => 'pages#live'

@@ -8,6 +8,7 @@ class Ability
       can :live, :pages
       can :home, :pages
     else
+      can :read, GlobalAnnoucement
       can :home, :pages
       can :show, Location
       can :show, Collection
