@@ -8,10 +8,19 @@ hr {
   border: 0; 
 }
 
+table, th, td{
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+};
+
 .content{
   background-color: #eeeeee;
   display: inline-block;
   padding: 20px;
+  table {
+    border: 2 #000000;
+  }
 }
 .alert{
   ul{
@@ -48,13 +57,13 @@ textarea {
   margin-bottom: 10px;
 }
 
-table {
-  border-width: 0;
-  border-style: none;
-  border-color: #0000ff;
-  border-collapse: collapse;
-}
 .qr {
+  table {
+    border-width: 0;
+    border-style: none;
+    border-color: #0000ff;
+    border-collapse: collapse;
+  }
   display:inline-block;
   td {
       border-left: solid 10px #000;
