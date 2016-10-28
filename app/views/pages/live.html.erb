@@ -8,6 +8,7 @@
             <% if team %>
                 <div class="col-md-4 cell">
                    <h3><%= team.name %></h3>
+                   <hr>
                    <ul>
                    <% team.collections.each do |c| %>
                        <li><%=c.location.name%> at <%=c.created_at%></li>
@@ -18,6 +19,7 @@
           <% end %>
         </div>
     <% end %>
+    <hr>
     <h2>By Location</h2>
     <% @locations.in_groups_of(3).each do |group| %>
         <div class="row">
@@ -38,26 +40,6 @@
 </div>
 
 <script>
-/*
-function update(){
-
-  $.ajax({
-          url : "",
-          type : "get",
-          success : function(data){
-              $("#note").text("Updated at " + data.time)
-              window.location.reload();
-          
-          },
-          error : function(){
-            $("#note").text("There was an error")
-          }
-  });
-};
-
-setInterval(function(){window.location.reload(),
-    update()}, 3000);
-*/
 reset = function(){
     location.reload(true)
 }

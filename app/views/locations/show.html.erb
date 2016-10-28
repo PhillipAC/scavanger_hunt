@@ -5,15 +5,13 @@
   <%= @location.name %><br>
   
   <% if current_user && current_user.admin %>
+    <%= link_to "Click Here for QR Code", qr_url( @location) %>
     <br>The following teams have found this location<br>
     <% @location.collections.each do |c| %>
       <% if c.team %>
         <%= c.team.name %> at <%= c.created_at %><br>
       <% end %>
     <% end %>
-    <div style="display:inline-block;">
-      <%=raw @qr.as_html %>
-    </div>
   <% else %>
     <%= form_for(@collection) do |f| %>
       <% if @collection.errors.any? %>
