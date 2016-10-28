@@ -2,6 +2,11 @@
 @import "bootstrap";
 
 /* universal */
+.alert{
+  li {
+    list-style-type: none;
+  }  
+}
 
 body {
   background-color: lavender;
