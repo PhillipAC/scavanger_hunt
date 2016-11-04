@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     @locations = Location.all
     @time = Time.now
   end
+  
+  def test
+    authorize! :home, :pages    
+  end
 end

@@ -7,6 +7,24 @@
 <% @team.collections.each do |c| %>
   <%= c.location.name %> at <%=c.created_at%><br>
 <% end %>
+<div id="visualization"></div>
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>
+
+<script type="text/javascript">
+    var container = document.getElementById('visualization');
+  var items = [
+    <% @team.collections.each do |c| %>
+      {x: "<%= c.created_at %>", y: "<%= @team.collections.index(c) %>"},
+    <% end %>
+  ];
+
+  var dataset = new vis.DataSet(items);
+  var options = {
+    start: "<%= @team.collections.first().created_at %>",
+    end: "<%= @team.collections.last().created_at %>",
+    interpolation: false
+  };
+  var graph2d = new vis.Graph2d(container, dataset, options);
+</script>

@@ -1,0 +1,19 @@
+<div id="visualization"></div>
+<script type="text/javascript">
+    var container = document.getElementById('visualization');
+  var items = [
+    {x: '2014-06-11 16:20:27', y: 0},
+    {x: '2014-06-11 16:24:37', y: 1},
+    {x: '2014-06-11 16:26:34', y: 2},
+    {x: '2014-06-11 16:32:57', y: 3},
+    {x: '2014-06-11 16:42:23', y: 4},
+    {x: '2014-06-11 17:01:17', y: 5}
+  ];
+
+  var dataset = new vis.DataSet(items);
+  var options = {
+    start: '2014-06-11 16:10:27',
+    end: '2014-06-11 17:10:27'
+  };
+  var graph2d = new vis.Graph2d(container, dataset, options);
+</script>
